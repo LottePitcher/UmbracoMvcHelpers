@@ -1,0 +1,166 @@
+﻿html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+h1 {
+  font-size: 32px;
+  font-size: 3.2rem;
+  line-height: 3.52rem;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 2.88rem;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 2.34rem;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 2.24rem;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  font-weight: normal;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #8080ff;
+  text-decoration: none;
+}
+
+header {
+  background-color: #CCC;
+  padding: 8px 0;
+}
+
+#header-heading {
+  font-size: 28px;
+  font-size: 2.8rem;
+  color: #222;
+}
+
+nav {
+  background-color: #EEE;
+  border-top: solid 1px #bbbbbb;
+  border-bottom: solid 1px #bbbbbb;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  float: left;
+  display: block;
+  font-size: 14px;
+  font-size: 1.4rem;
+  color: #222;
+  border-right: solid 1px #bbbbbb;
+}
+
+nav ul li:first-child {
+  border-left: solid 1px #bbbbbb;
+}
+
+nav ul .menu-item, nav ul a, nav ul span {
+  background-color: #EEE;
+  color: #222;
+  padding: 6px 12px;
+  display: block;
+}
+
+nav ul a {
+  text-decoration: none;
+}
+
+nav ul a.active {
+  font-weight: bold;
+}
+
+nav ul a:hover {
+  color: #222;
+  background-color: #CCC;
+}
+
+main {
+  margin-top: 24px;
+}
+
+@media (min-width: 48em) {
+  main {
+    min-height: 500px;
+  }
+}
+
+main h1 {
+  margin-top: 0.6rem;
+}
+
+main ol, main ul {
+  margin: 0.6rem 0;
+}
+
+main li {
+  margin: 0.4rem 0;
+}
+
+footer {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+footer .container {
+  border-top: solid 1px #EEE;
+}
+
+footer .container div.row {
+    padding-top: 12px;
+    color: gray;
+    font-style: italic;
+}
+footer .container div.row a { color: gray; }
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+h2 {
+
+}
+
+p {
+
+}
+

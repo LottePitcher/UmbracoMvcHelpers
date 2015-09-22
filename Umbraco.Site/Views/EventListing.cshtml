@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Site.cshtml";
+}
+
+<h1>@Model.Content.GetPropertyValue("Heading")</h1>
+
+@foreach (var item in Model.Content.Children)
+{
+    <a href="@item.Url">@item.Name</a><br/>
+}

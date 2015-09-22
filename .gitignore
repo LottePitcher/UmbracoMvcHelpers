@@ -77,7 +77,7 @@ ipch/
 *.aps
 *.ncb
 *.opensdf
-*.sdf
+#*.sdf		(commented out so sql ce database is included)
 *.cachefile
 
 # Visual Studio profiler

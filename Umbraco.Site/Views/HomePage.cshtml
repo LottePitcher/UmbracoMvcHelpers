@@ -1,0 +1,8 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Site.cshtml";
+}
+
+<h1>@Model.Content.GetPropertyValue("PageTitle")</h1>
+@Model.Content.GetPropertyValue("BodyText")
+<p>Show @Model.Content.GetPropertyValue("EventsToShow") events on the page.</p>

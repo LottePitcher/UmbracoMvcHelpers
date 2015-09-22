@@ -1,0 +1,74 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>@ViewBag.MetaTitle</title>
+
+    @* --- STANDARD FRAMEWORK CSS : START --- *@
+    <link href="~/css/responsive.min.css" rel="stylesheet" />
+    @* --- STANDARD FRAMEWORK CSS : END --- *@
+
+    @* --- APPLICATION CSS : START --- *@
+    <link href="~/css/site.css" rel="stylesheet" />
+    @* --- APPLICATION CSS : END --- *@
+
+    @RenderSection("styles", required: false)
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xxs-12" id="header-heading">
+                    Umbraco &amp; MVC Helpers
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <nav role="navigation">
+        <div class="container">
+            @Html.Partial("PrimaryNavigation")
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xxs-12 text-center">
+                    Sample site built by <a href="https://twitter.com/lottepitcher" target="_blank">@@lottepitcher</a> to demonstrate how MVC Helpers can be used in Umbraco
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @* --- STANDARD FRAMEWORK SCRIPTS : START --- *@
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/responsive.min.js"></script>
+    @* --- STANDARD FRAMEWORK SCRIPTS : END --- *@
+
+    @* --- APPLICATION SCRIPTS : START --- *@
+    @* --- APPLICATION SCRIPTS : END --- *@
+
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>

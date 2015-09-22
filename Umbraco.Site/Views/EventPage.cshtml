@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Site.cshtml";
+}
+
+<h1>@Model.Content.GetPropertyValue("Title")</h1>
+<p><i>@Model.Content.GetPropertyValue("EventDate")</i></p>
+@Model.Content.GetPropertyValue("FullDetails")
+
