@@ -1,8 +1,15 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Our.Umbraco.Ditto
+@using Umbraco.Site.Models
+@using Umbraco.Site.Helpers
+@inherits UmbracoTemplatePage
 @{
     Layout = "Site.cshtml";
+    var poco = Model.Content.As<HomePage>();
 }
 
-<h1>@Model.Content.GetPropertyValue("PageTitle")</h1>
-@Model.Content.GetPropertyValue("BodyText")
-<p>Show @Model.Content.GetPropertyValue("EventsToShow") events on the page.</p>
+<h1>@Html.DisplayFor(x => poco.PageTitle)</h1>
+
+@Html.DisplayFor(x => poco.BodyText)
+
+<h2>Our next @Html.DisplayForNumericWithUnit(x => poco.EventsToShow, "event")</h2>
+
