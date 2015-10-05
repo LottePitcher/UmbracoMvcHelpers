@@ -1,11 +1,53 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits UmbracoViewPage<Umbraco.Site.Models.EventListing>
 @{
     Layout = "Site.cshtml";
 }
 
-<h1>@Model.Content.GetPropertyValue("Heading")</h1>
+<h1>@Html.DisplayFor(model => model.PageHeading)</h1>
 
-@foreach (var item in Model.Content.Children)
-{
-    <a href="@item.Url">@item.Name</a><br/>
-}
+<div class="row">
+    
+    <div class="col-s-8 space-after-row">
+
+        <h2>Upcoming Events</h2>
+
+        @foreach (var item in Model.UpcomingEvents)
+        {
+            <div class="row">
+                <div class="col-s-3">
+                    @Html.DisplayFor(model => item.Image)
+                </div>
+                <div class="col-s-9">
+                    <p>
+                        <a href="@item.Url">@Html.DisplayFor(model => item.Name)</a>
+
+                        @* EventDate property is configured to use 'DateTimeBoth' display template by default *@
+                        <br /><i>@Html.DisplayFor(model => item.EventDate)</i>
+
+                        @* Introduction property is configured as [DataType(DataType.MultilineText)], so uses MultilineText.cshtml display template (renders line breaks)  *@
+                        <br />@Html.DisplayFor(model => item.Introduction)
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-s-1"></div>
+    <div class="col-s-3">
+        
+        <h2>Previous Events</h2>
+        
+        @foreach (var item in Model.PastEvents)
+        {
+            <p>
+                <a href="@item.Url">@Html.DisplayFor(model => item.Name)</a>
+
+                @* For past events don't need to display the time so override default and use DateTime display template *@
+                <br /><i>@Html.DisplayFor(model => item.EventDate, "DateTime")</i>
+            </p>
+        }  
+
+    </div>
+
+</div>
+
+

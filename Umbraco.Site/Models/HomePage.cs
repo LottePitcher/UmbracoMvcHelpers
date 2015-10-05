@@ -1,7 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Web;
 using Umbraco.Core.Models;
-using Web.Ditto.Models;
 
 namespace Umbraco.Site.Models
 {
@@ -11,10 +10,12 @@ namespace Umbraco.Site.Models
         {
         }
 
-        public string PageTitle { get; set; }
+        public string PageHeading { get; set; }
 
         public IHtmlString BodyText { get; set; }
 
         public int? EventsToShow { get; set; }
+
+        public List<EventPage> UpcomingEvents { get; set; }
     }
 }

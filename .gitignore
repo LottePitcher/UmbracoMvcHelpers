@@ -1,6 +1,8 @@
 
 ## Visual Studio gitignore, followed by Umbraco gitignore
 
+Article/
+
 ## ---------------------------------------------------------
 ## Visual Studio gitignore
 ## ---------------------------------------------------------

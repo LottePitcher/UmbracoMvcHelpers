@@ -1,0 +1,5 @@
+﻿@model DateTime?
+           
+@if (!Model.HasValue || Model.GetValueOrDefault() == default(DateTime)) { return; }
+
+@Model.Value.ToShortDateString() @Model.Value.ToString("HH:mm") 

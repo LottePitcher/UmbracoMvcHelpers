@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel;
 using Our.Umbraco.Ditto;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Core.Models.PublishedContent;
 
-namespace Web.Ditto.Models
+namespace Umbraco.Site.Models
 {
     [TypeConverter(typeof(DittoMediaPickerConverter))]
     public class Image : PublishedContentModel

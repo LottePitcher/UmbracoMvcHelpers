@@ -1,4 +1,13 @@
-﻿<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/Events">Events Listing</a></li>
+﻿@inherits UmbracoViewPage
+    
+@{
+    var homePage = Umbraco.TypedContentAtRoot().First();
+}
+
+<ul>
+    <li><a href="@homePage.Url()">@homePage.Name</a></li>
+    @foreach (var page in homePage.Children.Where(x => x.IsVisible()))
+    {
+        <li><a href="@page.Url">@page.Name</a></li>
+    }
 </ul>

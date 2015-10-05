@@ -1,6 +1,6 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits UmbracoViewPage<Umbraco.Site.ModelInterfaces.IBasePage>
 @{
-    Layout = null;
+    Layout = null; 
 }
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>@ViewBag.MetaTitle</title>
+    <title>@Model.MetaTitle</title>
+    <meta name="description" content="@Model.MetaDescription" />
 
     @* --- STANDARD FRAMEWORK CSS : START --- *@
     <link href="~/css/responsive.min.css" rel="stylesheet" />
@@ -21,7 +22,6 @@
     @* --- APPLICATION CSS : END --- *@
 
     @RenderSection("styles", required: false)
-
 </head>
 
 <body>
@@ -53,10 +53,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-xxs-12 text-center">
-                    Sample site built by <a href="https://twitter.com/lottepitcher" target="_blank">@@lottepitcher</a> to demonstrate how MVC Helpers can be used in Umbraco 
+                    Sample site built by <a href="https://twitter.com/lottepitcher" target="_blank">@@lottepitcher</a> to demonstrate how MVC Html Helpers can be useful in Umbraco sites.
                     <br />
-                    All stock images from <a href="https://stocksnap.io" target="_blank">stocksnap.io</a>.  CSS framework is (the awesome) <a href="http://responsivebp.com" target="_target">Responsive</a>
-                </div>
+                    Strongly typed models using (the awesome) <a href="https://our.umbraco.org/projects/developer-tools/ditto/" target="_blank">Ditto</a>
+                    | CSS framework is (the equally awesome) <a href="http://responsivebp.com" target="_target">Responsive</a>
+                    | Stock images from <a href="https://stocksnap.io" target="_blank">stocksnap.io</a>
+               </div>
             </div>
         </div>
     </footer>

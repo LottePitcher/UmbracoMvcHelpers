@@ -6,8 +6,8 @@
 
 body {
   font-family: arial, sans-serif;
-  font-size: 13px;
-  font-size: 1.3rem;
+  font-size: 14px;
+  font-size: 1.4rem;
   color: #222;
 }
 
@@ -32,24 +32,6 @@ h3 {
   font-weight: normal;
 }
 
-h4 {
-  font-size: 16px;
-  font-size: 1.6rem;
-  line-height: 2.24rem;
-  font-weight: normal;
-}
-
-h5 {
-  font-size: 14px;
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-  font-weight: normal;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a {
-  text-decoration: none;
-}
-
 a {
   color: blue;
   text-decoration: underline;
@@ -66,8 +48,8 @@ header {
 }
 
 #header-heading {
-  font-size: 28px;
-  font-size: 2.8rem;
+  font-size: 24px;
+  font-size: 2.4rem;
   color: #222;
 }
 
@@ -85,8 +67,6 @@ nav ul {
 nav ul li {
   float: left;
   display: block;
-  font-size: 14px;
-  font-size: 1.4rem;
   color: #222;
   border-right: solid 1px #bbbbbb;
 }
@@ -104,10 +84,6 @@ nav ul .menu-item, nav ul a, nav ul span {
 
 nav ul a {
   text-decoration: none;
-}
-
-nav ul a.active {
-  font-weight: bold;
 }
 
 nav ul a:hover {
@@ -137,6 +113,10 @@ main li {
   margin: 0.4rem 0;
 }
 
+main .space-after-row .row {
+    margin-bottom: 0.4rem;
+}
+
 footer {
   margin-top: 24px;
   margin-bottom: 12px;
@@ -147,12 +127,8 @@ footer .container {
 }
 
 footer .container div.row {
-    padding-top: 12px;
-    color: gray;
-    font-style: italic;
+  padding-top: 12px;
 }
-footer .container div.row a { color: gray; }
-
 
 
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -1,15 +1,44 @@
-﻿@using Our.Umbraco.Ditto
-@using Umbraco.Site.Models
-@using Umbraco.Site.Helpers
-@inherits UmbracoTemplatePage
+﻿@inherits UmbracoViewPage<Umbraco.Site.Models.HomePage>
 @{
     Layout = "Site.cshtml";
-    var poco = Model.Content.As<HomePage>();
 }
 
-<h1>@Html.DisplayFor(x => poco.PageTitle)</h1>
+@* there is no custom DisplayTemplate in this site for string properties, so will just do the default of rendering as string *@
+<h1>@Html.DisplayFor(model => model.PageHeading)</h1>
 
-@Html.DisplayFor(x => poco.BodyText)
+<div class="row">
+    
+    <div class="col-s-6">
+        
+        @* custom 'HtmlString' DisplayTemplate is used (not really needed but proves that you could!) *@
+        @Html.DisplayFor(model => model.BodyText)
+        
+    </div>
+    
+    <div class="col-s-6">
+        
+        @if (Model.UpcomingEvents.Any())
+        {
+            <h2>Our Next Events</h2>
 
-<h2>Our next @Html.DisplayForNumericWithUnit(x => poco.EventsToShow, "event")</h2>
+            <ul>
+                @foreach (var item in Model.UpcomingEvents)
+                {
+                    <li>
+
+                        <a href="@item.Url()">@Html.DisplayFor(model => item.Title)</a>
+
+                        @* EventDate property is configured to use 'DateTimeBoth' display template, but for this page we want to override that and use the 'DateTime' template *@
+                        <br />@Html.DisplayFor(model => item.EventDate, "DateTime")
+
+                    </li>
+                }
+            </ul>
+        }
+        
+    </div>
+
+</div>
+
+
 

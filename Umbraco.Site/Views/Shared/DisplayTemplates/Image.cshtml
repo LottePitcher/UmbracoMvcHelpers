@@ -1,0 +1,5 @@
+﻿@model Umbraco.Site.Models.Image
+                    
+@if (Model == null || Model.Bytes == 0) { return; }
+
+<img src="@Model.Url" alt="@Model.AltText" />

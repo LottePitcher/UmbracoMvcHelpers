@@ -1,9 +1,151 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Umbraco.Site.Helpers
+@inherits UmbracoViewPage<Umbraco.Site.Models.EventPage>
 @{
     Layout = "Site.cshtml";
 }
+<p>
+    This page displays the details of the selected event in a table.
+    Each property is displayed twice, first using Html helpers, then using more standard rendering techniques.
+    <br/>Look at the source this page (EventPage.cshtml) to see how much simpler the HTML helpers can make the views.
+</p>
 
-<h1>@Model.Content.GetPropertyValue("Title")</h1>
-<p><i>@Model.Content.GetPropertyValue("EventDate")</i></p>
-@Model.Content.GetPropertyValue("FullDetails")
 
+<table class="table-striped table-bordered">
+
+    <thead>
+        <tr>
+            <th>Property (type)</th>
+            <th>Using Html Helpers</th>
+            <th>"Standard" Umbraco techniques</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>Title (string)</td>
+            <td>
+                @Html.DisplayFor(model => model.Title)
+            </td>
+            <td>
+                @Model.Title
+            </td>
+        </tr>
+
+        <tr>
+            <td>Event Date (Date picker)</td>
+            <td>
+                @Html.DisplayFor(model => model.EventDate)
+            </td>
+            <td>
+                @if (Model.EventDate != DateTime.MinValue)
+                {
+                    @Model.EventDate.ToShortDateString()
+                    @Html.Raw(" ")
+                    @Model.EventDate.ToString("HH:mm")
+                }
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Members Only (boolean)</td>
+            <td>
+                @Html.DisplayFor(model => model.MembersOnly)
+            </td>
+            <td>
+                @(Model.MembersOnly ? Html.Raw("Yes") : Html.Raw("No"))
+            </td>
+        </tr>
+
+        <tr>
+            <td>Cost price GBP (decimal?)</td>
+            <td>
+                @Html.DisplayFor(model => model.CostPrice)
+            </td>
+            <td>
+                @Model.CostPrice.ToString("0.00")
+            </td>
+        </tr>
+
+        <tr>
+            <td>Maximum (int?)</td>
+            <td>
+                @* Using a custom helper to ensure that singular/plural units are displayed properly *@
+                @Html.DisplayNumberWithUnitFor(model => model.MaximumAttendees, "person", "people")
+            </td>
+            <td>
+                    @if (Model.MaximumAttendees == 1)
+                    {
+                        @Html.Raw("1 person")
+                    }
+                    else
+                    {
+                        @Model.MaximumAttendees
+                        @Html.Raw(" people")
+                    }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Introduction (multiline text)</td>
+            <td>
+                @Html.DisplayFor(model => model.Introduction)
+            </td>
+            <td>
+                @Umbraco.Field("Introduction", convertLineBreaks: true)
+            </td>
+        </tr>
+
+        <tr>
+            <td>Image</td>
+            <td>
+                @Html.DisplayFor(model => model.Image)
+            </td>
+            <td>
+                @if (Model.Image != null)
+                {
+                    <img src="@Model.Image.Url" alt="@Model.Image.AltText" />
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Applications Open (date)</td>
+            <td>
+                @Html.DisplayFor(model => model.ApplicationsOpen)
+            </td>
+            <td>
+                @if (Model.ApplicationsOpen != DateTime.MinValue)
+                {
+                    @Model.ApplicationsOpen.ToShortDateString()
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Applications Close (date)</td>
+            <td>
+                @Html.DisplayFor(model => model.ApplicationsClose)
+            </td>
+            <td>
+                @if (Model.ApplicationsClose != DateTime.MinValue)
+                {
+                    @Model.ApplicationsClose.ToShortDateString()
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Main Content (RTE)</td>
+            <td>
+                @Html.DisplayFor(model => model.BodyText)
+            </td>
+            <td>
+                @Model.BodyText
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
