@@ -16,6 +16,8 @@ Username: admin; Password: password
 ### Strongly typed models with Ditto
 A controller has been added for each document type (inheriting from RenderMvcController) which is where Ditto creates the strongly typed models
 
-### Coming soon (hopefully!)
+### Coming soon ...
 - EditorFor, LabelFor, ValidationMessageFor examples
 - Custom scaffolding templates to speed up coding
+
+If those would be of interest to you please drop me a line @lottepitcher to encourage me to get those added!
