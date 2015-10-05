@@ -20,4 +20,4 @@ A controller has been added for each document type (inheriting from RenderMvcCon
 - EditorFor, LabelFor, ValidationMessageFor examples
 - Custom scaffolding templates to speed up coding
 
-If those would be of interest to you please drop me a line @lottepitcher to encourage me to get those added!
+If those would be of interest to you please tweet me @lottepitcher to encourage me to get those added!
